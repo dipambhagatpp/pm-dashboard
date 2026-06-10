@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server"
+const GOOGLE_API =
+  "https://script.google.com/a/macros/petpooja.com/s/AKfycbxdxYIGYe5a0C1p-e0iPb6aOS1dsyTy0M6qfNEJm6CX5PFgbIKkmAxKsL2GYpyNlH8/exec"
 
 // In a real deployment this data would come from a database or upstream service.
 // Here it is assembled server-side so the client renders everything dynamically.
@@ -162,5 +164,14 @@ function buildPayload() {
 }
 
 export async function GET() {
-  return NextResponse.json(buildPayload())
+  const response = await fetch(
+    GOOGLE_API,
+    {
+      cache: "no-store",
+    }
+  )
+
+  const data = await response.json()
+
+  return NextResponse.json(data)
 }

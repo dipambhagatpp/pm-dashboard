@@ -7,8 +7,7 @@ import type { DashboardData } from "./dashboard"
  * dashboard at any external REST service that returns the `DashboardData`
  * shape. When unset, it falls back to the built-in `/api/dashboard` route.
  */
-export const DASHBOARD_API_URL =
-  process.env.NEXT_PUBLIC_DASHBOARD_API_URL?.trim() || "/api/dashboard"
+export const DASHBOARD_API_URL = "/api/dashboard"
 
 /**
  * Fetches the dashboard payload from the configured REST endpoint.
